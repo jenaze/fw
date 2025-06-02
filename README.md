@@ -48,12 +48,22 @@ A powerful Python-based firewall management tool that provides an easy-to-use in
    sudo ./firewall_manager.py --enable
    ```
 
-3. Disable firewall:
+3. Enable firewall without allowing SSH connections (use with caution):
+   ```bash
+   sudo ./firewall_manager.py --enable --disable-ssh
+   ```
+
+4. Enable firewall and load IPs from whitelist.txt (can be combined with other options):
+   ```bash
+   sudo ./firewall_manager.py --whitelist --enable IR --disable-ssh
+   ```
+
+5. Disable firewall:
    ```bash
    sudo ./firewall_manager.py --disable
    ```
 
-4. Show firewall status:
+6. Show firewall status:
    ```bash
    sudo ./firewall_manager.py --status
    ```
@@ -81,6 +91,16 @@ A powerful Python-based firewall management tool that provides an easy-to-use in
    sudo ./firewall_manager.py --add-ips-from-file /path/to/file.txt whitelist
    ```
 
+5. Load IPs from default whitelist file (whitelist.txt):
+   ```bash
+   sudo ./firewall_manager.py --whitelist
+   ```
+
+6. Load IPs from default blacklist file (blacklist.txt):
+   ```bash
+   sudo ./firewall_manager.py --blacklist
+   ```
+
 ### Custom Rules
 
 Add custom iptables rules:
@@ -97,6 +117,7 @@ sudo ./firewall_manager.py --remove-custom-rule "INPUT -p tcp --dport 80 -j ACCE
 
 - Default SSH port: 22 (configurable in the script)
 - Default whitelist file: `whitelist.txt` in the same directory
+- Default blacklist file: `blacklist.txt` in the same directory
 - IP lists cache directory: `ip_lists/`
 - Default policies:
   - INPUT: DROP
