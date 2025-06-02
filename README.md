@@ -31,7 +31,7 @@ A powerful Python-based firewall management tool that provides an easy-to-use in
    ```
 3. Run the dependency check:
    ```bash
-   sudo ./firewall_manager.py --install-deps
+   sudo python3 /root/fw/firewall_manager.py --install-deps
    ```
 
 ## Usage
@@ -40,77 +40,77 @@ A powerful Python-based firewall management tool that provides an easy-to-use in
 
 1. Enable firewall (with country whitelist):
    ```bash
-   sudo ./firewall_manager.py --enable IR  # Replace IR with desired country code
+   sudo python3 /root/fw/firewall_manager.py --enable IR  # Replace IR with desired country code
    ```
 
 2. Enable firewall (without country whitelist):
    ```bash
-   sudo ./firewall_manager.py --enable
+   sudo python3 /root/fw/firewall_manager.py --enable
    ```
 
 3. Enable firewall without allowing SSH connections (use with caution):
    ```bash
-   sudo ./firewall_manager.py --enable --disable-ssh
+   sudo python3 /root/fw/firewall_manager.py --enable --disable-ssh
    ```
 
 4. Enable firewall and load IPs from whitelist.txt (can be combined with other options):
    ```bash
-   sudo ./firewall_manager.py --whitelist --enable IR --disable-ssh
+   sudo python3 /root/fw/firewall_manager.py --whitelist --enable IR --disable-ssh
    ```
 
 5. Disable firewall:
    ```bash
-   sudo ./firewall_manager.py --disable
+   sudo python3 /root/fw/firewall_manager.py --disable
    ```
 
 6. Show firewall status:
    ```bash
-   sudo ./firewall_manager.py --status
+   sudo python3 /root/fw/firewall_manager.py --status
    ```
 
 ### IP Management
 
 1. Update country IP list:
    ```bash
-   sudo ./firewall_manager.py --update-country-ips IR  # Replace IR with desired country code
+   sudo python3 /root/fw/firewall_manager.py --update-country-ips IR  # Replace IR with desired country code
    ```
 
 2. Add single IP to whitelist/blacklist:
    ```bash
-   sudo ./firewall_manager.py --add-ip 1.2.3.4 whitelist
-   sudo ./firewall_manager.py --add-ip 5.6.7.8 blacklist
+   sudo python3 /root/fw/firewall_manager.py --add-ip 1.2.3.4 whitelist
+   sudo python3 /root/fw/firewall_manager.py --add-ip 5.6.7.8 blacklist
    ```
 
 3. Remove IP from whitelist/blacklist:
    ```bash
-   sudo ./firewall_manager.py --remove-ip 1.2.3.4 whitelist
+   sudo python3 /root/fw/firewall_manager.py --remove-ip 1.2.3.4 whitelist
    ```
 
 4. Add IPs from file:
    ```bash
-   sudo ./firewall_manager.py --add-ips-from-file /path/to/file.txt whitelist
+   sudo python3 /root/fw/firewall_manager.py --add-ips-from-file /path/to/file.txt whitelist
    ```
 
 5. Load IPs from default whitelist file (whitelist.txt):
    ```bash
-   sudo ./firewall_manager.py --whitelist
+   sudo python3 /root/fw/firewall_manager.py --whitelist
    ```
 
 6. Load IPs from default blacklist file (blacklist.txt):
    ```bash
-   sudo ./firewall_manager.py --blacklist
+   sudo python3 /root/fw/firewall_manager.py --blacklist
    ```
 
 ### Custom Rules
 
 Add custom iptables rules:
 ```bash
-sudo ./firewall_manager.py --add-custom-rule "INPUT -p tcp --dport 80 -j ACCEPT"
+sudo python3 /root/fw/firewall_manager.py --add-custom-rule "INPUT -p tcp --dport 80 -j ACCEPT"
 ```
 
 Remove custom rules:
 ```bash
-sudo ./firewall_manager.py --remove-custom-rule "INPUT -p tcp --dport 80 -j ACCEPT"
+sudo python3 /root/fw/firewall_manager.py --remove-custom-rule "INPUT -p tcp --dport 80 -j ACCEPT"
 ```
 
 ## Default Configuration
@@ -144,7 +144,7 @@ If you get locked out:
 1. Access the server physically or through out-of-band management
 2. Disable the firewall:
    ```bash
-   sudo ./firewall_manager.py --disable
+   sudo python3 /root/fw/firewall_manager.py --disable
    ```
 
 ## License
