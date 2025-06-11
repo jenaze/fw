@@ -9,7 +9,7 @@ import time
 
 # --- Configuration ---
 APP_NAME = "Python Firewall Manager"
-VERSION = "0.1.2" # Incremented version for the change
+VERSION = "0.1.3" # Incremented version for the change
 
 # IPSet names
 COUNTRY_IPSET_NAME = "country_whitelist"
@@ -316,7 +316,8 @@ def delete_saved_rules():
 def fetch_country_ips(country_code):
     """Fetches IP ranges for a given country code from ipv4.fetus.jp."""
     import requests
-    url = f"https://ipv4.fetus.jp/{country_code.lower()}.txt"
+    # --- url = f"https://ipv4.fetus.jp/{country_code.lower()}.txt" ---
+    url = f"https://raw.githubusercontent.com/HShasti/ipList/refs/heads/main/ir.txt"  
     print(f"Fetching IP list for country {country_code.upper()} from {url}...")
     try:
         response = requests.get(url, timeout=10)
